@@ -1,5 +1,5 @@
 # Intermediate-Linux-Admistration
-This is about SSH, OPENSSH server, SUDOERS(How to configure sshd configuration files), how to securely upload and download files, and process management ( /fg | /bg| /job)
+This is about SSH, OPENSSH server, SUDOERS(How to configure sshd configuration files), how to securely upload and download files (SFTP - SCP), and process management ( /fg | /bg| /job)
 
 
 1. ## What is SSH
@@ -149,4 +149,41 @@ Now we will proceed to how to configure sshd configuartion files
                         sudo sshd -t
                         
                         sudo systemctl restart sshd
-                                                
+                                             
+
+  3. ## How to securely upload and download files (SFTP - SCP)
+
+ In our Client Server as we did above we will `mkdir` and put in files into the directory. let assume we create a directory call `images` and we put some files in the directory. we want to transfer the files fron the client desktop to the remote desktop using ssh
+ 
+                                    sudo mkdir /Desktop/images
+ 
+ - In our remote server we will make a directory in `/var/www/html` directory
+
+                              sudo mkdir -p /var/www/html
+                              
+                              sudo ld -ltr /var/www/html
+                              
+ - On our remote server we can get our IP address using any of the following command 
+
+                              hostname -i
+                              
+                              ifconfig
+                              
+ - We need to create the same `image` directoy we created in our client server in the directory we created in our remote serever 
+
+                                         sudo mkdir /var/www/html/images
+
+ - Next, we change the ownship of the directory we created 
+
+                                          sudo chown user:user /var/www/html/images
+                                          
+ - On the client desktop we will login into the remote userver using `sftp` and we cd into the directory
+
+                                            sftp <IP-Server>
+                                            
+                                            cd /var/www/html
+                                            
+ - Next we send the folder from the client server to the remote server
+                                            put -r images
+                                            
+                                            
