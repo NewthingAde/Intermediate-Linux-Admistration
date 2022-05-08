@@ -140,5 +140,13 @@ Now we will proceed to how to configure sshd configuartion files
 
                       sudo su tolu
 
-
+   **We can use the following Command line to control how root user can access the remote server**
+   
+                        ls -ltr /etc/ssh/sshd_config
+                        
+                        nano /etc/ssh/sshd_config
+                        
+                        sudo sshd -t
+                        
+                        sudo systemctl restart sshd
                                                 
