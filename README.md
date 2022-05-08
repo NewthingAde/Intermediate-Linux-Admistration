@@ -80,4 +80,65 @@ On the client server we will run the command line below
 
                                     ssh user@<IP-Address of server> -vvv
                                     
-3. ## 
+3. ## SUDOERS(How to configure sshd configuration files)
+
+
+Now we will proceed to how to configure sshd configuartion files 
+
+- Let create a user on one of the desktop server and give it a password (Let us use the user name tolu as an example)
+
+                          sudo useradd -m tolu
+                          
+                          sudo passwd tolu
+                          
+- let us check if the user is created using the `id`
+
+                                      id tolu
+                                      
+-  Now we will switch the user to the new created user 
+
+                                    sudo  su tolu
+                                    
+                                    exit
+                                    
+**Note:** The new user we created do not have acces to use sudo or access the root file so we can edit the permission in the sudoer file
+
+                                  ls -latr /etc/sudoers
+                                  
+                                  sudo nano /etc/sudoers
+                                  
+                            
+**Note:** The new user we created do not have acces to use sudo or access the root file so we can edit the permission in the sudoer file
+
+ We can use the command `sudo nano /etc/sudoers` to open the sudoer file and then add the user name and give it the root permission
+ 
+ - Next we should always run this command to ensure that our filoe is okay
+
+                                        sudo visudo -c
+                                        
+ - Next we can switch user into the the user tolu and we will not have restricted access again.
+
+**This can be done by creating a new group and add the user to it**
+
+   1. create a group name devops
+
+                      sudo groupadd devops
+                      
+   2. Next we add the user tolu to the group created 
+
+                      sudo usermod -a -G devops tolu
+                      
+   3. We can check again if the user has been ctrated 
+
+                      id tolu
+                      
+   4. Let us check if the file is okay
+
+                      sudo visudo - c
+                      
+   5. Next we switch user to the user tolu created
+
+                      sudo su tolu
+
+
+                                                
