@@ -1,5 +1,5 @@
 # Intermediate-Linux-Admistration
-This is about SSH, OPENSSH server, SUDOERS(How to configure sshd configuration files), how to securely upload and download files (SFTP - SCP), and process management ( /fg | /bg| /job)
+This is about SSH, OPENSSH server, SUDOERS(How to configure sshd configuration files), how to securely upload and download files (SFTP - SCP)
 
 
 1. ## What is SSH
