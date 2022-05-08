@@ -183,7 +183,22 @@ Now we will proceed to how to configure sshd configuartion files
                                             
                                             cd /var/www/html
                                             
- - Next we send the folder from the client server to the remote server
-                                            put -r images
-                                            
+ - Next we want to upload the folder from the client server to the remote server
+ 
+                                             put -r images
+                                           
+ - Now if we want to download the the folder instead of upload then we will use the command line below
+
+                                              get -r images
+                                              
+     **Let try using `SCP` instead of `SFTP`**
+     
+     
+     - To upload with scp we use the command line below
+
+                       scp -r <folder_name/> user@<Ip-Addrress of server>:/<folder we want to upload it to>
+                                    
+                                    
+                                    
+                   scp -r user@<Ip-Addrress of server>:/<folder/file to be downloaded> <absolute path to download the folder>
                                             
